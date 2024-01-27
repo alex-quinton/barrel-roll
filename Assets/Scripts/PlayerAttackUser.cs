@@ -11,10 +11,13 @@ public class PlayerSkillUser : MonoBehaviour
 	// each cooldown corresponds to the attack at the same index in attacks array
 	public int[] cooldowns;
 
+	private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
 		InitializeCooldowns();
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,6 +45,9 @@ public class PlayerSkillUser : MonoBehaviour
 			case "RangedPlayerAttack":
 				PerformRangedAttack((RangedPlayerAttack) atk);
 				break;
+			case "CleavePlayerAttack":
+				PerformCleaveAttack((CleavePlayerAttack) atk);
+				break;
 			default:
 				Debug.Log("Warning: player attack class name has no case for InvokeAttack()!");
 				break;
@@ -54,6 +60,12 @@ public class PlayerSkillUser : MonoBehaviour
 		GameObject newProjectile = Instantiate(atk.projectile);
 		newProjectile.GetComponent<PlayerProjectile>().setLifetime(atk.range); // perform calculation for lifetime based on range/speed?
 		newProjectile.GetComponent<Transform>().position = spawnPosition;
+	}
+
+	private void PerformCleaveAttack(CleavePlayerAttack atk)
+	{
+		GameObject cleaveHitbox = gameObject.transform.GetChild(0).gameObject;
+		anim.Play("playerCleaveAttack", -1, 0f);
 	}
 
 	private void InitializeCooldowns()

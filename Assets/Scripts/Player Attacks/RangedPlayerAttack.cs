@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class RangedPlayerAttack : PlayerAttack
 {
+	// cooldown inherited from parent class
+	
 	// for now, range is directly used to set projectile's lifetime
 	public int range; // int because it's used to set PlayerProjectile lifetime
 	public int damage;
