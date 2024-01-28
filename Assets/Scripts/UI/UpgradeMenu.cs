@@ -9,9 +9,9 @@ public class UpgradeMenu : MonoBehaviour
 	public PlayerUpgrade[] upgradePool;
 
 	// called when player levels up
-	public void NewUpgrade()
+	public void PresentNewUpgrade()
 	{
-		// Pick 3 indicies of upgradePool
+		// Pick 3 random indicies of upgradePool
 		// set ui elements using their data
 	}
 }
