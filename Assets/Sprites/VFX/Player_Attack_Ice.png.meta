@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc2532ec89230be409c5f088c38ebcfd
+guid: 623542e30bab61c419466655531308ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2428396708813337285
-    second: Player_Attack_Ice 1_0
+      213: 889721026470193051
+    second: Player_Attack_Ice_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Attack_Ice 1_0
+      name: Player_Attack_Ice_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
+        width: 208
         height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c2fb82c0f563b120800000000000000
-      internalID: 2428396708813337285
+      spriteID: b97a3f34f8ce85c00800000000000000
+      internalID: 889721026470193051
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Attack_Ice 1_0: 2428396708813337285
+      Player_Attack_Ice_0: 889721026470193051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

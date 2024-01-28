@@ -370,7 +370,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Death_ Mage_Sprites_0: -283782976754149174
+      Death_ Mage_Sprites_1: -1693615162388564993
+      Death_ Mage_Sprites_10: -4129178370029702849
+      Death_ Mage_Sprites_2: -1238552955426326123
+      Death_ Mage_Sprites_3: -468649194331194242
+      Death_ Mage_Sprites_4: -8489901354974411700
+      Death_ Mage_Sprites_5: -8053156883851303172
+      Death_ Mage_Sprites_6: -602870243509821142
+      Death_ Mage_Sprites_7: 1316910006606197820
+      Death_ Mage_Sprites_8: 1338292408551653854
+      Death_ Mage_Sprites_9: 6666915342734398365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
