@@ -14,14 +14,14 @@ public class Projectile_Ranger : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        rb.velocityX = speed;
+        rb.velocity = -transform.right * speed;
 
         Destroy(gameObject, lifetime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch (collision.tag)
+        switch (collision.gameObject.tag)
         {
             case "Player":
                 collision.gameObject.GetComponent<Player>().TakeDamage(damage);

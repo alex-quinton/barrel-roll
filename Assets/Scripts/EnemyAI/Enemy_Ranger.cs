@@ -21,6 +21,7 @@ public class Enemy_Ranger : Enemy_Base
 
             if (attackTimer <= 0)
             {
+                LaunchProjectile();
 
                 Debug.Log(gameObject.name + ": Spawning projectile");
                 attackTimer = attackDelay;

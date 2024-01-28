@@ -80,7 +80,7 @@ MonoBehaviour:
   attackDamage: 0
   attackRange: 2
   attackDelay: 1
-  projectile: {fileID: 0}
+  projectile: {fileID: 7676385106908098775, guid: b14844d9627c286439c07160bcc1da87, type: 3}
 --- !u!212 &2334066703789720090
 SpriteRenderer:
   m_ObjectHideFlags: 0
