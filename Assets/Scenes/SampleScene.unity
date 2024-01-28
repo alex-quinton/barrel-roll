@@ -1407,7 +1407,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1489,7 +1489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ca7c1783749c84b8dd72fdfe2f3642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
 --- !u!1 &1537566983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,7 +2086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ca7c1783749c84b8dd72fdfe2f3642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
 --- !u!1 &1977409039
 GameObject:
   m_ObjectHideFlags: 0
