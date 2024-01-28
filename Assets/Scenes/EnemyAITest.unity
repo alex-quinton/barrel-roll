@@ -237,19 +237,9 @@ MonoBehaviour:
   spawnDistance: 5
   enemyCullingDistance: 7
   spawnWaves:
-  - enemyPrefab: {fileID: 3700442024703896777, guid: f93871050a6a39a48afc37befebebc2f, type: 3}
-    spawnTimeBand: {x: 0, y: 1800}
-    spawnInterval: 10
-    initialCount: 10
-    growthRate: 5
   - enemyPrefab: {fileID: 211466573474416521, guid: cd2c130970dd544499f5769cd14face7, type: 3}
-    spawnTimeBand: {x: 5, y: 1800}
-    spawnInterval: 10
-    initialCount: 5
-    growthRate: 2
-  - enemyPrefab: {fileID: 2587184036416179280, guid: 2b0fd923035e83042bdd2d142623c10a, type: 3}
-    spawnTimeBand: {x: 10, y: 1800}
-    spawnInterval: 10
+    spawnTimeBand: {x: 0, y: 1800}
+    spawnInterval: 100
     initialCount: 5
     growthRate: 2
   quedWaves: []
