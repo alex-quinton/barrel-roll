@@ -38,7 +38,7 @@ public class PlayerProjectile : MonoBehaviour
 	// in order for the range to be determined by the PlayerAttack scriptable object
 	public void setLifetime(int newLifetime)
 	{
-		Debug.Log("setting lifetime: " + newLifetime);
+		//Debug.Log("setting lifetime: " + newLifetime);
 		lifetime = newLifetime;
 	}
 }

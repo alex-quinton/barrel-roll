@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c322b1bd457484bad00b8ae8664869, type: 3}
-  m_Name: Ranged Attack
+  m_Script: {fileID: 11500000, guid: aa379ce92bb4ee4409c1aed689206134, type: 3}
+  m_Name: RangedAttack1
   m_EditorClassIdentifier: 
-  cooldown: 180
-  attackName: RangedPlayerAttack1
-  range: 180
-  damage: 1
-  pushStrength: 1
-  projectile: {fileID: 7676385106908098775, guid: 3d5925e65d4d27141af4758363b24db9, type: 3}
+  attackName: RangedAttack
+  description: Fires a projectile
+  tier: 1
+  playerAttack: {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}

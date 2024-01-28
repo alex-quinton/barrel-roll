@@ -27,4 +27,6 @@ public class Player : MonoBehaviour
 	{
 		rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
 	}
+
+	// code for receiving upgrades is in PlayerAttackUser
 }
