@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Enemy_Base : MonoBehaviour
 {
     // Combat
@@ -20,6 +23,9 @@ public abstract class Enemy_Base : MonoBehaviour
     protected float attackTimer;
 
     // Freeze
+    protected Color normalColor = new Color(255, 255, 255); // White
+    protected Color frozenColor = new Color(0, 75, 255); // Blue Freeze
+    private float slideSpeed = 5f;
     private float tolerance;
     private float freezeDelay = 5f; // Change this to increase or decrease duration of freeze condition.
     private float freezeTimer;
@@ -29,6 +35,10 @@ public abstract class Enemy_Base : MonoBehaviour
     protected GameObject playerRef;
     private EnemyHandler handler;
     protected Rigidbody2D rb;
+    protected Animator anim;
+    protected SpriteRenderer spriteRenderer;
+
+    [SerializeField] protected ParticleSystem vfx;
 
     protected void Start()
     {
@@ -52,9 +62,13 @@ public abstract class Enemy_Base : MonoBehaviour
             // Freeze delay is up, revive the enemy.
             if (freezeTimer <= 0) 
             {
+                /// Unfreeze Logic
+                // Visuals
+                spriteRenderer.color = normalColor;
+                anim.StopPlayback();
+                vfx.Stop();
+                // Mechanical
                 tolerance = maxHealth;
-
-                // TODO:: Set sprite to unfrozen
             }
         }
         else
@@ -71,6 +85,8 @@ public abstract class Enemy_Base : MonoBehaviour
     private void SetReferences()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
 
         GameObject gc = GameObject.FindGameObjectWithTag("GameController");
@@ -94,7 +110,13 @@ public abstract class Enemy_Base : MonoBehaviour
             {
                 freezeTimer = freezeDelay;
 
-                // TODO:: Set sprite to frozen
+                /// Freezing Logic
+                // Visuals
+                spriteRenderer.color = frozenColor;
+                anim.StartPlayback();
+                vfx.Stop();
+                // Mechanical
+                rb.velocity = Vector3.zero;
             }
         }
     }
@@ -103,4 +125,41 @@ public abstract class Enemy_Base : MonoBehaviour
     /// Describes the specific behavior of enemies while unfrozen.
     /// </summary>
     protected abstract void UnfrozenBehavior();
+
+    /// <summary>
+    /// Handles frozen logic for enemies on colliding with other objects.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsFrozen) 
+        {
+            bool isMoving = rb.velocity.magnitude > 0;
+            switch (collision.gameObject.tag)
+            {
+                case "Player":
+                    Push();
+                    break;
+                case "Enemy":
+                    if (isMoving)
+                        collision.gameObject.GetComponent<Enemy_Base>().ApplyDamage(50);
+                    break;
+                case "Wall":
+                    Die();
+                    break;
+            }
+        }
+    }
+
+    public void Push() 
+    {
+        if (IsFrozen && rb.velocity.magnitude <= 0)
+            rb.velocity = (playerRef.transform.position - transform.position).normalized * 5f;
+    }
+
+    private void Die() 
+    {
+        // TODO:: Drop EXP
+        Destroy(gameObject);
+    }
 }
