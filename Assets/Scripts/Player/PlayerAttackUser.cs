@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Handles logic for attack usage
 // as well as gaining & upgrading attacks
-public class PlayerSkillUser : MonoBehaviour
+public class PlayerAttackUser : MonoBehaviour
 {
 	// Array of PlayerAttacks currently equipped on the player
 	// Each attack tracks its cooldown & is used when cooldown is ready

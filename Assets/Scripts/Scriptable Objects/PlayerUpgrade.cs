@@ -13,6 +13,9 @@ public class PlayerUpgrade : ScriptableObject
 	// both upgradeName and attackName must be "cleaveAttack"
 	public string attackName;
 
+	// Name displayed in the upgrade menu
+	public string displayName;
+
 	[TextArea(4,8)]
 	public string description;
 
