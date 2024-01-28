@@ -202,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 162515697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1977409044}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: GrantPlayerUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &162515697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 281114435}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1977409044}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: GrantPlayerUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &281114435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,9 +989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}
-  - {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}
-  - {fileID: 11400000, guid: d69fe8655664f08458969c2ac1524889, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   cooldowns: 0000000000000000000000000000000000000000
@@ -1967,7 +1991,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1952476177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1977409044}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: GrantPlayerUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1952476177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,11 +2103,11 @@ GameObject:
   - component: {fileID: 1977409044}
   m_Layer: 5
   m_Name: UpgradeMenu
-  m_TagString: Untagged
+  m_TagString: UpgradeMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1977409040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,7 +2155,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977409039}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
