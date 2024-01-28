@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	private int nextLevelRequirement; // determines exp required to reach the next level
 
 	private Rigidbody2D rb;
+	private Animator anim;
 	private UpgradeMenu upgradeMenu;
 	private Vector2 moveVelocity;
 
@@ -20,13 +21,19 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 		upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu").GetComponent<UpgradeMenu>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		float horizontal = Input.GetAxisRaw("Horizontal");
+		float vertical = Input.GetAxisRaw("Vertical");
+		anim.SetFloat("Horizontal", horizontal);
+        anim.SetFloat("Vertical", vertical);
+
+        Vector2 moveInput = new Vector2(horizontal, vertical);
 		moveVelocity = moveInput.normalized * speed;
 
 		// added for testing level ups

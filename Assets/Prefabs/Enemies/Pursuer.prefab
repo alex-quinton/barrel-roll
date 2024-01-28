@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 1744452394303078943}
   - component: {fileID: 893347927826424441}
   - component: {fileID: -4375484777310379191}
+  - component: {fileID: -8765329396065760758}
   m_Layer: 0
   m_Name: Pursuer
   m_TagString: Untagged
@@ -209,7 +210,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1744452394303078943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,9 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   moveSpeed: 2
-  attackDamage: 0
-  attackRange: 0.1
-  attackDelay: 1
+  attackDamage: 1
+  attackRange: 1
+  attackDelay: 0.1
 --- !u!212 &893347927826424441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -303,3 +304,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &-8765329396065760758
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700442024703896777}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.12}
+  m_Radius: 0.38

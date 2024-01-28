@@ -37,5 +37,6 @@ public class Enemy_Ranger : Enemy_Base
     {
         float launchAngle = Vector2.Angle(Vector2.right, transform.position - playerRef.transform.position);
         GameObject newProj = Instantiate(projectile, transform.position, Quaternion.FromToRotation(Vector2.right, transform.position - playerRef.transform.position));
+        newProj.GetComponent<Projectile_Ranger>().damage = attackDamage;
     }
 }

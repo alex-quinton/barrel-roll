@@ -19,7 +19,7 @@ public class Enemy_Pursuer : Enemy_Base
 
             if (attackTimer <= 0)
             {
-                playerRef.GetComponent<Player>(); // TODO:: Deal Damage to the player
+                playerRef.GetComponent<Player>().TakeDamage(attackDamage);
 
                 attackTimer = attackDelay;
             }
