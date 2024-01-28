@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHitbox : MonoBehaviour
+public class PlayerHitboxPivot : MonoBehaviour
 {
-	public int damage;
-
 	private Camera cam;
 	private Vector3 playerPos;
 	private Vector2 mousePos;
