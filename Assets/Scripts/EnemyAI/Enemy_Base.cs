@@ -27,6 +27,7 @@ public abstract class Enemy_Base : MonoBehaviour
     
     // Object References
     protected GameObject playerRef;
+    private EnemyHandler handler;
     protected Rigidbody2D rb;
 
     protected void Start()
@@ -58,6 +59,8 @@ public abstract class Enemy_Base : MonoBehaviour
         }
         else
         {
+            handler?.CheckRelocate(gameObject);
+
             UnfrozenBehavior();
         }
     }
@@ -67,8 +70,12 @@ public abstract class Enemy_Base : MonoBehaviour
     /// </summary>
     private void SetReferences()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        playerRef = GameObject.FindGameObjectWithTag("Player");
+
+        GameObject gc = GameObject.FindGameObjectWithTag("GameController");
+        if (gc)
+            handler = gc.GetComponent<EnemyHandler>();
     }
 
     /// <summary>
