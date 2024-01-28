@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handles logic for attack usage
+// as well as gaining & upgrading attacks
 public class PlayerSkillUser : MonoBehaviour
 {
 	// Array of PlayerAttacks currently equipped on the player
@@ -38,14 +40,6 @@ public class PlayerSkillUser : MonoBehaviour
 
 		}
     }
-
-//	private void InvokeAttack(PlayerAttack atk) => atk.GetType().ToString() switch
-//	{
-//		"RangedPlayerAttack" => PerformRangedAttack((RangedPlayerAttack)atk),
-//		"CleavePlayerAttack" => PerformCleaveAttack((CleavePlayerAttack)atk),
-//		"SlowAuraPlayerAttack" => PerformSlowAuraAttack((SlowAuraPlayerAttack)atk),
-//		_ => Debug.Log("Warning: player attack class name has no case for InvokeAttack()!")
-//	};
 
 // TODO: fix animation states for attacks so that they dont interfere with each other
 	private void InvokeAttack(PlayerAttack atk)
@@ -100,5 +94,72 @@ public class PlayerSkillUser : MonoBehaviour
 				cooldowns[i] = -1;
 			}
 		}
+	}
+
+	// adds an attack to attacks array if tier is 1 and space is available
+	// otherwise replaces an existing attack with the upgraded version
+	public void ReceiveUpgrade(PlayerUpgrade upgrade)
+	{
+		if (upgrade.tier == 1)
+		{
+			if (!HasEmptyAttackSlot())
+			{
+				Debug.Log("Warning! Attempting to equip tier 1 upgrade while player's attack slots are full.\nPlayer should not be offered T1 upgrades while attacks are full!");
+				return;
+			}
+
+			int newAtkIdx = GetFirstEmptyAttackIndex();
+			attacks[newAtkIdx] = upgrade.playerAttack;
+
+			// free trigger for new attack
+			cooldowns[newAtkIdx] = 1;
+		}else
+		{
+			int idxToReplace = GetIdxOfMatchingAttackName(upgrade.attackName);
+			if (idxToReplace == -1)
+			{
+				Debug.Log("Warning! Attempting to equip T2+ upgrade for an attack the player doesn't have.\nPlayer should not be offered T2+ upgrades for attacks they don't have");
+				return;
+			}
+
+			attacks[idxToReplace] = upgrade.playerAttack;
+
+			// free trigger for newly upgraded attack
+			cooldowns[idxToReplace] = 1;
+		}
+	}
+
+	private bool HasEmptyAttackSlot()
+	{
+		bool result = false;
+		for (int i = 0; i < attacks.Length; i++)
+		{
+			if (attacks[i] == null)
+				result = true;
+		}
+
+		return result;
+	}
+
+	private int GetFirstEmptyAttackIndex()
+	{
+		for (int i = 0; i < attacks.Length; i++)
+		{
+			if (attacks[i] == null)
+				return i;
+		}
+
+		return -1;
+	}
+
+	private int GetIdxOfMatchingAttackName(string attackName)
+	{
+		for (int i = 0; i < attacks.Length; i++)
+		{
+			if (attacks[i].attackName == attackName)
+				return i;
+		}
+
+		return -1;
 	}
 }
