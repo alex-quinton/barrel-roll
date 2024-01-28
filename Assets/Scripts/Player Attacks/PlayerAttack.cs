@@ -6,4 +6,5 @@ public class PlayerAttack : ScriptableObject
 {
 	public int cooldown;
 	public string attackName;
+	public int tier;
 }

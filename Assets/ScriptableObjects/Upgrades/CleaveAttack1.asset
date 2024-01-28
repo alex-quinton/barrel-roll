@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa379ce92bb4ee4409c1aed689206134, type: 3}
+  m_Name: CleaveAttack1
+  m_EditorClassIdentifier: 
+  attackName: CleaveAttack
+  description: Melee attack
+  tier: 1
+  playerAttack: {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}
