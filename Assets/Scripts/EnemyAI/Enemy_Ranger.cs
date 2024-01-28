@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Enemy_Ranger : Enemy_Base
 {
+    [SerializeField] GameObject projectile;
+
     /// <summary>
     /// Called every frame.
     /// Moves into attack range of the player, then fires a projectile on a delay.
@@ -19,7 +21,8 @@ public class Enemy_Ranger : Enemy_Base
 
             if (attackTimer <= 0)
             {
-                // TODO:: Spawn projectile
+                LaunchProjectile();
+
                 Debug.Log(gameObject.name + ": Spawning projectile");
                 attackTimer = attackDelay;
             }
@@ -28,5 +31,12 @@ public class Enemy_Ranger : Enemy_Base
         {
             rb.velocity = (playerOffset).normalized * moveSpeed;
         }
+    }
+
+    private void LaunchProjectile() 
+    {
+        float launchAngle = Vector2.Angle(Vector2.right, transform.position - playerRef.transform.position);
+        GameObject newProj = Instantiate(projectile, transform.position, Quaternion.FromToRotation(Vector2.right, transform.position - playerRef.transform.position));
+        newProj.GetComponent<Projectile_Ranger>().damage = attackDamage;
     }
 }

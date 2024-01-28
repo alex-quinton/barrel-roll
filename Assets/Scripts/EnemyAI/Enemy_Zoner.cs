@@ -30,8 +30,7 @@ public class Enemy_Zoner : Enemy_Base
             
             if (playerOffset.magnitude <= attackRange && !didAttack)
             {
-                // TODO:: Deal damage to the player
-                Debug.Log(gameObject.name + ": Swoop attack");
+                playerRef.GetComponent<Player>().TakeDamage(attackDamage);
 
                 didAttack = true;
             }
@@ -55,7 +54,6 @@ public class Enemy_Zoner : Enemy_Base
                 attackTimer = attackDelay;
                 swoopTimer = swoopLength;
                 rb.velocity = playerOffset.normalized * swoopSpeed;
-                Debug.Log(gameObject.name + ": Start swoop");
             }
             else // Circle then otherwise
             {

@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &610891524884251709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,13 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a29bef83ddf4744c9449ef60cf8fb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  moveSpeed: 2
-  attackDamage: 0
+  maxHealth: 50
+  moveSpeed: 5
+  attackDamage: 10
   attackRange: 0.1
   attackDelay: 5
-  hoverRangeBand: {x: 1, y: 1.5}
-  swoopSpeed: 3
+  hoverRangeBand: {x: 2, y: 3}
+  swoopSpeed: 7.5
   swoopLength: 1
 --- !u!212 &6801769963063538485
 SpriteRenderer:

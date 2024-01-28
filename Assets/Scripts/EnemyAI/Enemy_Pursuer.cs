@@ -19,8 +19,8 @@ public class Enemy_Pursuer : Enemy_Base
 
             if (attackTimer <= 0)
             {
-                // TODO:: Deal damage to the player.
-                Debug.Log(gameObject.name + ": Attacking");
+                playerRef.GetComponent<Player>().TakeDamage(attackDamage);
+
                 attackTimer = attackDelay;
             }
         }
