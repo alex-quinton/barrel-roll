@@ -92,24 +92,11 @@ public abstract class Enemy_Base : MonoBehaviour
             // Freezes the enemy if their health is below zero
             if (IsFrozen) 
             {
-                Freeze();
+                freezeTimer = freezeDelay;
 
                 // TODO:: Set sprite to frozen
             }
         }
-    }
-
-    /// <summary>
-    /// Freezes the enemy for a set period of time
-    /// </summary>
-    /// <param name="freezeTime"></param>
-    private void Freeze() 
-    {
-        Freeze(freezeDelay);
-    }
-    private void Freeze(float freezeTime) 
-    {
-        freezeTimer = freezeTime;
     }
 
     /// <summary>
