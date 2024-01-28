@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa379ce92bb4ee4409c1aed689206134, type: 3}
-  m_Name: ProjectileAttack1
+  m_Name: RangedAttack1
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  upgradeTier: 0
-  attack: {fileID: 0}
+  attackName: RangedAttack
+  description: Fires a projectile
+  tier: 1
+  playerAttack: {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}

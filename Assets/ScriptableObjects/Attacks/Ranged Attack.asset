@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Ranged Attack
   m_EditorClassIdentifier: 
   cooldown: 180
-  attackName: RangedPlayerAttack1
+  attackName: RangedAttack
+  tier: 1
   range: 180
   damage: 1
   pushStrength: 1

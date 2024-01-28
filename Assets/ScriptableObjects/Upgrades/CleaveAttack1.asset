@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68dbc7fbeb46e1b4a929a3b41a10a64a, type: 3}
-  m_Name: Cleave Attack
+  m_Script: {fileID: 11500000, guid: aa379ce92bb4ee4409c1aed689206134, type: 3}
+  m_Name: CleaveAttack1
   m_EditorClassIdentifier: 
-  cooldown: 270
   attackName: CleaveAttack
+  description: Melee attack
   tier: 1
-  width: 3
-  length: 2
-  damage: 10
-  pushStrength: 0
+  playerAttack: {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}
