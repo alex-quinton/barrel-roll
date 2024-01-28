@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RangedAttack1
   m_EditorClassIdentifier: 
   attackName: RangedAttack
+  displayName: Ranged Attack
   description: Fires a projectile
   tier: 1
   playerAttack: {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}
