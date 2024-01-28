@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1252086346297557528}
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14d27813b7f8f740aaeeb239cf10547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  health: 0
+  speed: 3
+  health: 100
 --- !u!50 &3172346858246977705
 Rigidbody2D:
   serializedVersion: 4
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}
+  - {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

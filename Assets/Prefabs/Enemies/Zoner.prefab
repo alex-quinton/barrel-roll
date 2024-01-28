@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   moveSpeed: 5
-  attackDamage: 10
+  attackDamage: 6
   attackRange: 0.1
   attackDelay: 5
   col: {fileID: 0}
