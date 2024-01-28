@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
 	private void Die()
 	{
 		anim.SetTrigger("Death");
+		Time.timeScale = 0f;
 		// TODO:: Some death screen
 	}
 
