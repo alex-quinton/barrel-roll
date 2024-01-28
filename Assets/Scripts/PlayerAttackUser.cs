@@ -32,14 +32,25 @@ public class PlayerSkillUser : MonoBehaviour
 			{
 				InvokeAttack(attacks[i]);
 				cooldowns[i] = attacks[i].cooldown;
-				Debug.Log("setting cooldown to: " + attacks[i].cooldown);
+				//Debug.Log("setting cooldown to: " + attacks[i].cooldown);
+				continue;
 			}
+
 		}
     }
 
+//	private void InvokeAttack(PlayerAttack atk) => atk.GetType().ToString() switch
+//	{
+//		"RangedPlayerAttack" => PerformRangedAttack((RangedPlayerAttack)atk),
+//		"CleavePlayerAttack" => PerformCleaveAttack((CleavePlayerAttack)atk),
+//		"SlowAuraPlayerAttack" => PerformSlowAuraAttack((SlowAuraPlayerAttack)atk),
+//		_ => Debug.Log("Warning: player attack class name has no case for InvokeAttack()!")
+//	};
+
+// TODO: fix animation states for attacks so that they dont interfere with each other
 	private void InvokeAttack(PlayerAttack atk)
 	{
-		Debug.Log("Invoking attack: " + atk.attackName);
+		//Debug.Log("Invoking attack: " + atk.attackName);
 		switch(atk.GetType().ToString())
 		{
 			case "RangedPlayerAttack":
@@ -48,10 +59,18 @@ public class PlayerSkillUser : MonoBehaviour
 			case "CleavePlayerAttack":
 				PerformCleaveAttack((CleavePlayerAttack) atk);
 				break;
+			case "SlowAuraPlayerAttack":
+				PerformSlowAuraAttack((SlowAuraPlayerAttack) atk);
+				break;
 			default:
 				Debug.Log("Warning: player attack class name has no case for InvokeAttack()!");
 				break;
 		}
+	}
+
+	private void PerformSlowAuraAttack(SlowAuraPlayerAttack atk)
+	{
+		anim.Play("playerSlowAuraAttack", -1, 0f);
 	}
 
 	private void PerformRangedAttack(RangedPlayerAttack atk)
@@ -64,7 +83,7 @@ public class PlayerSkillUser : MonoBehaviour
 
 	private void PerformCleaveAttack(CleavePlayerAttack atk)
 	{
-		GameObject cleaveHitbox = gameObject.transform.GetChild(0).gameObject;
+		//GameObject cleaveHitbox = gameObject.transform.GetChild(0).gameObject;
 		anim.Play("playerCleaveAttack", -1, 0f);
 	}
 
