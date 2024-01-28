@@ -53,6 +53,7 @@ public class Enemy_Zoner : Enemy_Base
                 hoverDir = UnityEngine.Random.Range(0, 2) > .5f;
                 attackTimer = attackDelay;
                 swoopTimer = swoopLength;
+                didAttack = false;
                 rb.velocity = playerOffset.normalized * swoopSpeed;
             }
             else // Circle then otherwise
