@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CleaveAttack1
   m_EditorClassIdentifier: 
   attackName: CleaveAttack
+  displayName: Cleave Attack
   description: Melee attack
   tier: 1
   playerAttack: {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}

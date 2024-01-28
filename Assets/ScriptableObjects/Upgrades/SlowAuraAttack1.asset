@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SlowAuraAttack1
   m_EditorClassIdentifier: 
   attackName: SlowAuraAttack
+  displayName: Slow Aura Attack
   description: Aura Attack
   tier: 1
   playerAttack: {fileID: 11400000, guid: d69fe8655664f08458969c2ac1524889, type: 2}

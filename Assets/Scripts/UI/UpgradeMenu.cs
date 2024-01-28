@@ -25,23 +25,26 @@ public class UpgradeMenu : MonoBehaviour
 	public void GrantPlayerUpgrade(int offeredUpgradeIndex)
 	{
 		playerRef.GetComponent<PlayerAttackUser>().ReceiveUpgrade(offeredUpgrades[offeredUpgradeIndex]);
+		GetComponent<Canvas>().enabled = false;
 	}
 
 	// called when player levels up
 	public void PresentNewUpgrade()
 	{
+		GetComponent<Canvas>().enabled = true;
+
 		int[] chosenIndicies = new int[] {-1, -1, -1};
 		// Pick 3 random indicies of upgradePool
 		// set ui elements using their data
 		List<int> poolOptions = Enumerable.Range(0, upgradePool.Length).ToList();
-		for(int i = 0; i < 2; i++)
+		for(int i = 0; i < 3; i++)
 		{
 			int choice = Random.Range(0, poolOptions.Count());
 			chosenIndicies[i] = poolOptions[choice];
 			poolOptions.RemoveAt(choice);
 		}
 
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			int chosenPoolIndex = chosenIndicies[i];
 			SetUpgradeButton(i, upgradePool[chosenPoolIndex]);
@@ -51,10 +54,14 @@ public class UpgradeMenu : MonoBehaviour
 
 	private void SetUpgradeButton(int buttonIndex, PlayerUpgrade upgrade)
 	{
-		var button = gameObject.transform.GetChild(0).GetChild(buttonIndex);
-		TextMeshPro buttonNameText = button.gameObject.transform.GetChild(0).GetComponent<TextMeshPro>();
-		TextMeshPro buttonDescText = button.gameObject.transform.GetChild(1).GetComponent<TextMeshPro>();
+		var button = gameObject.transform.GetChild(0).transform.GetChild(buttonIndex);
+		Debug.Log(button.name);
+		//CanvasRenderer buttonNameText = button.gameObject.transform.GetChild(0).GetComponent<CanvasRenderer>();
+		TextMeshProUGUI buttonNameText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+		TextMeshProUGUI buttonDescText = button.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 		
+		Debug.Log(buttonNameText);
+
 		buttonNameText.text = upgrade.displayName;
 		buttonDescText.text =  upgrade.description;
 	}

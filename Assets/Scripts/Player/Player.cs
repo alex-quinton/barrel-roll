@@ -28,6 +28,12 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		moveVelocity = moveInput.normalized * speed;
+
+		// added for testing level ups
+		if (Input.GetKeyDown("h"))
+		{
+			LevelUp();
+		}
     }
 
 	void FixedUpdate()
