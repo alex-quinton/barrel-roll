@@ -6,7 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy_Base : MonoBehaviour
 {
-    [Tooltip("How fast this enemy moves in units per second")]
+    // Combat
+    [Tooltip("How much damage the enemy can take before freezing.")]
+    [SerializeField] protected float maxHealth;
+    [Tooltip("How fast this enemy moves in units per second.")]
     [SerializeField] protected float moveSpeed;
     [Tooltip("How much damage this enemy inflicts on attack.")]
     [SerializeField] protected int attackDamage;
@@ -15,13 +18,20 @@ public abstract class Enemy_Base : MonoBehaviour
     [Tooltip("How often this enemy attacks the player.")]
     [SerializeField] protected float attackDelay;
     protected float attackTimer;
-    protected float freezeTimer;
+
+    // Freeze
+    private float tolerance;
+    private float freezeDelay = 5f; // Change this to increase or decrease duration of freeze condition.
+    private float freezeTimer;
+    public bool IsFrozen => tolerance <= 0;
+    
+    // Object References
     protected GameObject playerRef;
     protected Rigidbody2D rb;
-    public bool IsFrozen => freezeTimer > 0;
 
     protected void Start()
     {
+        tolerance = maxHealth;
         SetReferences();
     }
 
@@ -36,15 +46,18 @@ public abstract class Enemy_Base : MonoBehaviour
         // Handle the enemy's frozen state
         if (IsFrozen) 
         {
-            // TODO:: Set sprite to frozen
-
             freezeTimer -= Time.deltaTime;
+
+            // Freeze delay is up, revive the enemy.
+            if (freezeTimer <= 0) 
+            {
+                tolerance = maxHealth;
+
+                // TODO:: Set sprite to unfrozen
+            }
         }
         else
         {
-
-            // TODO:: Set sprite to unfrozen
-
             UnfrozenBehavior();
         }
     }
@@ -59,10 +72,35 @@ public abstract class Enemy_Base : MonoBehaviour
     }
 
     /// <summary>
-    /// Used by the player to freeze this 
+    /// Used by the player to apply damage to this enemy.
+    /// Will freeze the enemy if their tolerance drops below 0.
+    /// </summary>
+    /// <param name="incomingDamage">The amount of damage to apply.</param>
+    public void ApplyDamage(float incomingDamage) 
+    {
+        if (tolerance > 0) 
+        {
+            tolerance -= incomingDamage;
+
+            // Freezes the enemy if their health is below zero
+            if (IsFrozen) 
+            {
+                Freeze();
+
+                // TODO:: Set sprite to frozen
+            }
+        }
+    }
+
+    /// <summary>
+    /// Freezes the enemy for a set period of time
     /// </summary>
     /// <param name="freezeTime"></param>
-    public void Freeze(float freezeTime) 
+    private void Freeze() 
+    {
+        Freeze(freezeDelay);
+    }
+    private void Freeze(float freezeTime) 
     {
         freezeTimer = freezeTime;
     }
