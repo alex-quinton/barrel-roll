@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 610891524884251709}
   - component: {fileID: 6801769963063538485}
   - component: {fileID: -952177326561389591}
+  - component: {fileID: 1458938693293496670}
   m_Layer: 0
   m_Name: Zoner
   m_TagString: Untagged
@@ -79,6 +80,9 @@ MonoBehaviour:
   attackDamage: 10
   attackRange: 0.1
   attackDelay: 5
+  col: {fileID: 0}
+  trig: {fileID: 1458938693293496670}
+  vfx: {fileID: 0}
   hoverRangeBand: {x: 2, y: 3}
   swoopSpeed: 7.5
   swoopLength: 1
@@ -123,7 +127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1975228589
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4660246858206667721, guid: 53d414bfdb136e847baaa9a443f4a766, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -158,3 +162,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &1458938693293496670
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587184036416179280}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.25

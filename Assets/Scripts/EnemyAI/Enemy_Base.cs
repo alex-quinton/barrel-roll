@@ -36,6 +36,8 @@ public abstract class Enemy_Base : MonoBehaviour
     private EnemyHandler handler;
     protected Rigidbody2D rb;
     protected Animator anim;
+    [SerializeField] protected Collider2D col;
+    [SerializeField] protected Collider2D trig;
     protected SpriteRenderer spriteRenderer;
 
     [SerializeField] protected ParticleSystem vfx;
@@ -69,6 +71,10 @@ public abstract class Enemy_Base : MonoBehaviour
                 vfx.Stop();
                 // Mechanical
                 tolerance = maxHealth;
+                if (col)
+                    col.enabled = true;
+                if (trig)
+                    trig.enabled = false;
             }
         }
         else
@@ -117,6 +123,10 @@ public abstract class Enemy_Base : MonoBehaviour
                 vfx.Stop();
                 // Mechanical
                 rb.velocity = Vector3.zero;
+                if (col)
+                    col.enabled = false;
+                if (trig)
+                    trig.enabled = true;
             }
         }
     }
