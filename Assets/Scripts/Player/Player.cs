@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 	
 	public float speed;
+	public int health;
 
 	private int exp;
 	private int level;
@@ -41,6 +42,20 @@ public class Player : MonoBehaviour
 		{
 			LevelUp();
 		}
+	}
+
+	public void TakeDamage(int amount)
+	{
+		health -= amount;
+		if (health <= 0)
+		{
+			Die();
+		}
+	}
+
+	private void Die()
+	{
+		Destroy(gameObject);
 	}
 
 	// exp is not set to 0 when levelling up
