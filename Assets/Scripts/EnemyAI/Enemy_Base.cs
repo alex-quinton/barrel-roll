@@ -25,7 +25,7 @@ public abstract class Enemy_Base : MonoBehaviour
     // Freeze
     protected Color normalColor = new Color(255, 255, 255); // White
     protected Color frozenColor = new Color(0, 75, 255); // Blue Freeze
-    private float slideSpeed = 5f;
+    private float slideSpeed = 4f;
     private float tolerance;
     private float freezeDelay = 5f; // Change this to increase or decrease duration of freeze condition.
     private float freezeTimer;
@@ -164,7 +164,7 @@ public abstract class Enemy_Base : MonoBehaviour
     public void Push() 
     {
         if (IsFrozen && rb.velocity.magnitude <= 0)
-            rb.velocity = (playerRef.transform.position - transform.position).normalized * 5f;
+            rb.velocity = (playerRef.transform.position - transform.position).normalized * slideSpeed;
     }
 
     private void Die() 
