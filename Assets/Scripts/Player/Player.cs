@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,10 +29,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
 		float horizontal = Input.GetAxisRaw("Horizontal");
 		float vertical = Input.GetAxisRaw("Vertical");
-		anim.SetFloat("Horizontal", horizontal);
+		anim.SetFloat("Horizontal", MathF.Abs(horizontal));
         anim.SetFloat("Vertical", vertical);
+		if (horizontal < 0 && vertical == 0)
+			transform.localScale = new Vector2(-1, 1);
+		else if (horizontal > 0 || vertical != 0)
+            transform.localScale = new Vector2(1, 1);
 
         Vector2 moveInput = new Vector2(horizontal, vertical);
 		moveVelocity = moveInput.normalized * speed;
@@ -68,7 +74,8 @@ public class Player : MonoBehaviour
 
 	private void Die()
 	{
-		Destroy(gameObject);
+		anim.SetTrigger("Death");
+		// TODO:: Some death screen
 	}
 
 	// exp is not set to 0 when levelling up
