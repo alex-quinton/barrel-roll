@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: environment
+    uniqueID: 3767237069
+    locked: 0
   - name: vfx
     uniqueID: 808875513
     locked: 0
