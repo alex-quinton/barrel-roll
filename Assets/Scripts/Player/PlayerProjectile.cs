@@ -41,4 +41,18 @@ public class PlayerProjectile : MonoBehaviour
 		//Debug.Log("setting lifetime: " + newLifetime);
 		lifetime = newLifetime;
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		switch (collision.gameObject.tag)
+		{
+			case "Enemy":
+                collision.gameObject.GetComponent<Enemy_Base>().ApplyDamage(damage);
+				Destroy(gameObject);
+				break;
+			case "Wall":
+				Destroy(gameObject);
+				break;
+		}
+	}
 }

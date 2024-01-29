@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		//upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu").GetComponent<UpgradeMenu>();
-    }
+	}
 
     // Update is called once per frame
     void Update()
@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
 	{
 		anim.SetTrigger("Death");
 		Time.timeScale = 0f;
+		GetComponent<PlayerAttackUser>().PlayAudio(1);
 		// TODO:: Some death screen
 	}
 
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
 		Time.timeScale = 1f;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 	}
+
 
 	// code for receiving upgrades is in PlayerAttackUser
 }

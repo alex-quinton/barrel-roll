@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: -8765329396065760758}
   m_Layer: 0
   m_Name: Pursuer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +231,8 @@ MonoBehaviour:
   attackDelay: 0.1
   col: {fileID: 845700279017457087}
   trig: {fileID: -8765329396065760758}
+  sounds:
+  - {fileID: 8300000, guid: 9ff92f4e96882df4ba1628b5d669c9e9, type: 3}
   vfx: {fileID: 0}
 --- !u!212 &893347927826424441
 SpriteRenderer:

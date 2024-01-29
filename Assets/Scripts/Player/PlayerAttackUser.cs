@@ -6,6 +6,8 @@ using UnityEngine;
 // as well as gaining & upgrading attacks
 public class PlayerAttackUser : MonoBehaviour
 {
+	public AudioClip[] sounds;
+	private AudioSource audioSource;
 	// Array of PlayerAttacks currently equipped on the player
 	// Each attack tracks its cooldown & is used when cooldown is ready
 	public PlayerAttack[] attacks;
@@ -23,6 +25,7 @@ public class PlayerAttackUser : MonoBehaviour
     {
 		InitializeCooldowns();
 		anim = GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -76,6 +79,8 @@ public class PlayerAttackUser : MonoBehaviour
 		GameObject newProjectile = Instantiate(atk.projectile);
 		newProjectile.GetComponent<PlayerProjectile>().setLifetime(atk.range); // perform calculation for lifetime based on range/speed?
 		newProjectile.GetComponent<Transform>().position = spawnPosition;
+
+		PlayAudio(0);
 	}
 
 	private void PerformCleaveAttack(CleavePlayerAttack atk)
@@ -164,5 +169,10 @@ public class PlayerAttackUser : MonoBehaviour
 		}
 
 		return -1;
+	}
+
+	public void PlayAudio(int clipIndex)
+	{
+		audioSource.PlayOneShot(sounds[clipIndex], 0.5f);
 	}
 }

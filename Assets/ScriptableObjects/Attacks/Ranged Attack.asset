@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c322b1bd457484bad00b8ae8664869, type: 3}
   m_Name: Ranged Attack
   m_EditorClassIdentifier: 
-  cooldown: 180
+  cooldown: 90
   attackName: RangedAttack
   tier: 1
   range: 180
-  damage: 1
+  damage: 100
   pushStrength: 1
   projectile: {fileID: 7676385106908098775, guid: 3d5925e65d4d27141af4758363b24db9, type: 3}

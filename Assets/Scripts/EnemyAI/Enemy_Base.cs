@@ -40,6 +40,9 @@ public abstract class Enemy_Base : MonoBehaviour
     [SerializeField] protected Collider2D trig;
     protected SpriteRenderer spriteRenderer;
 
+	private AudioSource audioSource;
+	public AudioClip[] sounds;
+
     [SerializeField] protected ParticleSystem vfx;
 
     protected void Start()
@@ -68,7 +71,8 @@ public abstract class Enemy_Base : MonoBehaviour
                 // Visuals
                 spriteRenderer.color = normalColor;
                 anim.StopPlayback();
-                vfx.Stop();
+				if (vfx)
+                	vfx.Stop();
                 // Mechanical
                 tolerance = maxHealth;
                 if (col)
@@ -95,6 +99,8 @@ public abstract class Enemy_Base : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
 
+		audioSource = GetComponent<AudioSource>();
+
         GameObject gc = GameObject.FindGameObjectWithTag("GameController");
         if (gc)
             handler = gc.GetComponent<EnemyHandler>();
@@ -111,6 +117,7 @@ public abstract class Enemy_Base : MonoBehaviour
         {
             tolerance -= incomingDamage;
 
+			//Debug.Log("new tolerance: " + tolerance);
             // Freezes the enemy if their health is below zero
             if (IsFrozen) 
             {
@@ -120,14 +127,18 @@ public abstract class Enemy_Base : MonoBehaviour
                 // Visuals
                 spriteRenderer.color = frozenColor;
                 anim.StartPlayback();
-                vfx.Stop();
+				if (vfx)
+                	vfx.Stop();
                 // Mechanical
                 rb.velocity = Vector3.zero;
+				Debug.Log("Set rb velocity: " + rb.velocity);
                 if (col)
                     col.enabled = false;
                 if (trig)
                     trig.enabled = true;
-            }
+            }else{
+				//Debug.Log("Not frozen! Tolerance: " + tolerance);
+			}
         }
     }
 
@@ -152,6 +163,7 @@ public abstract class Enemy_Base : MonoBehaviour
                     break;
                 case "Enemy":
                     if (isMoving)
+						//Debug.Log("Applying frozen collision damage");
                         collision.gameObject.GetComponent<Enemy_Base>().ApplyDamage(50);
                     break;
                 case "Wall":
@@ -164,12 +176,18 @@ public abstract class Enemy_Base : MonoBehaviour
     public void Push() 
     {
         if (IsFrozen && rb.velocity.magnitude <= 0)
-            rb.velocity = (playerRef.transform.position - transform.position).normalized * slideSpeed;
+            rb.velocity = (transform.position - playerRef.transform.position).normalized * slideSpeed;
     }
 
     private void Die() 
     {
         // TODO:: Drop EXP
         Destroy(gameObject);
+		PlayAudio(0);
     }
+
+	public void PlayAudio(int soundIndex)
+	{
+		audioSource.PlayOneShot(sounds[soundIndex], 0.5f);
+	}
 }

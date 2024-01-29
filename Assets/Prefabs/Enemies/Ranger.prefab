@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3794760777550923255}
   m_Layer: 0
   m_Name: Ranger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,9 @@ MonoBehaviour:
   attackDelay: 1
   col: {fileID: -538167646454551843}
   trig: {fileID: 3794760777550923255}
-  vfx: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 9ff92f4e96882df4ba1628b5d669c9e9, type: 3}
+  vfx: {fileID: 8653062796784263669}
   projectile: {fileID: 7676385106908098775, guid: b14844d9627c286439c07160bcc1da87, type: 3}
 --- !u!212 &2334066703789720090
 SpriteRenderer:

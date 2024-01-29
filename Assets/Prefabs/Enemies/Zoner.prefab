@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1458938693293496670}
   m_Layer: 0
   m_Name: Zoner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,8 @@ MonoBehaviour:
   attackDelay: 5
   col: {fileID: 0}
   trig: {fileID: 1458938693293496670}
+  sounds:
+  - {fileID: 8300000, guid: 9ff92f4e96882df4ba1628b5d669c9e9, type: 3}
   vfx: {fileID: 0}
   hoverRangeBand: {x: 2, y: 3}
   swoopSpeed: 7.5
