@@ -15,6 +15,9 @@ public class PlayerAttackUser : MonoBehaviour
 
 	private Animator anim;
 
+	[SerializeField]
+	private Animator cleaveAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +81,7 @@ public class PlayerAttackUser : MonoBehaviour
 	private void PerformCleaveAttack(CleavePlayerAttack atk)
 	{
 		//GameObject cleaveHitbox = gameObject.transform.GetChild(0).gameObject;
-		anim.Play("playerCleaveAttack", -1, 0f);
+		cleaveAnim.Play("playerCleaveAttack", -1, 0f);
 	}
 
 	private void InitializeCooldowns()

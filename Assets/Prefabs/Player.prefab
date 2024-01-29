@@ -153,6 +153,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cooldowns: 0000000000000000000000000000000000000000
+  cleaveAnim: {fileID: 6266652258932851364}
 --- !u!95 &6801267755308513768
 Animator:
   serializedVersion: 7
@@ -361,7 +362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7599742739228175071
 Transform:
   m_ObjectHideFlags: 0

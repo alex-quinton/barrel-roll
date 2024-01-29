@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu").GetComponent<UpgradeMenu>();
+		//upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu").GetComponent<UpgradeMenu>();
     }
 
     // Update is called once per frame
@@ -91,6 +92,12 @@ public class Player : MonoBehaviour
 	private void updateLevelRequirement()
 	{
 		nextLevelRequirement = (int) Mathf.Floor( 0.25f * Mathf.Floor( level + 300*Mathf.Pow(2, level/7) ) );
+	}
+
+	public void ReturnToMainMenu()
+	{
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 	}
 
 	// code for receiving upgrades is in PlayerAttackUser
