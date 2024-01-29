@@ -8,7 +8,7 @@ public class PlayerProjectile : MonoBehaviour
 	public int damage;
 	public float speed;
 
-	private int lifetime;
+	private float lifetime;
 	private Camera cam; // used for getting cursor position
 	private Rigidbody2D rb;
 	private Vector2 target;
@@ -27,7 +27,7 @@ public class PlayerProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifetime --;
+        lifetime -= Time.deltaTime;
 		if (lifetime <= 0)
 			Destroy(gameObject);
 		
@@ -36,7 +36,7 @@ public class PlayerProjectile : MonoBehaviour
 
 	// used to set lifetime when object is instantiated
 	// in order for the range to be determined by the PlayerAttack scriptable object
-	public void setLifetime(int newLifetime)
+	public void setLifetime(float newLifetime)
 	{
 		//Debug.Log("setting lifetime: " + newLifetime);
 		lifetime = newLifetime;
@@ -48,9 +48,6 @@ public class PlayerProjectile : MonoBehaviour
 		{
 			case "Enemy":
                 collision.gameObject.GetComponent<Enemy_Base>().ApplyDamage(damage);
-				Destroy(gameObject);
-				break;
-			case "Wall":
 				Destroy(gameObject);
 				break;
 		}
