@@ -40,6 +40,8 @@ public abstract class Enemy_Base : MonoBehaviour
     [SerializeField] protected Collider2D trig;
     protected SpriteRenderer spriteRenderer;
 
+	private bool doWallCollide = false;
+
 	private AudioSource audioSource;
 	public AudioClip[] sounds;
 
@@ -53,6 +55,25 @@ public abstract class Enemy_Base : MonoBehaviour
 
     private void Update()
     {
+		if (!doWallCollide)
+		{
+			bool assumeDoesCollide = true;
+			foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, 0.3f))
+			{
+				if (collider.gameObject.tag == "Wall")
+				{
+					//Debug.Log("hit wall");
+					assumeDoesCollide = false;
+				}
+			}
+
+			if (assumeDoesCollide) 
+			{
+				//Debug.Log("Changing excludeLayers");
+				col.excludeLayers = col.excludeLayers &~ (byte) (1 << 3);
+				doWallCollide = true;
+			}
+		}
         // Update the attack timer
         if (attackTimer > 0)
         {

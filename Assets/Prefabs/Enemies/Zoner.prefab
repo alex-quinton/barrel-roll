@@ -82,7 +82,7 @@ MonoBehaviour:
   attackDamage: 6
   attackRange: 0.1
   attackDelay: 5
-  col: {fileID: 1458938693293496670}
+  col: {fileID: 0}
   trig: {fileID: 7693233660322155310}
   sounds:
   - {fileID: 8300000, guid: 9ff92f4e96882df4ba1628b5d669c9e9, type: 3}
@@ -182,7 +182,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 823
+    m_Bits: 831
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

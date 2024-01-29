@@ -155,8 +155,8 @@ Camera:
   m_GameObject: {fileID: 747369906}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -232,6 +232,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158391991415508816, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 887225028104533279, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1091342964194525712, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -272,17 +280,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1258894263628552833, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2570967566725229614, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_Name
       value: level
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570967566725229614, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098840633760958282, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3556812303145162401, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4391361518787544717, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_CompositeOperation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4829151613924153398, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5509901975828806562, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_Constraints
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706724200341028956, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_GeometryType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6706724200341028956, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -291,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 6706724200341028956, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104551110239052256, guid: 836ea290b6804064881a47b7d01cdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
