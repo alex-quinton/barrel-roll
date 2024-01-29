@@ -38,7 +38,7 @@ public class EnemyHandler : MonoBehaviour
     {
         for (int i = spawnWaves.Count - 1; i >= 0; i--)
         {
-            if (Time.time > spawnWaves[i].spawnTimeBand.x)
+            if (Time.timeSinceLevelLoad > spawnWaves[i].spawnTimeBand.x)
             {
                 quedWaves.Add(spawnWaves[i]);
                 spawnWaves.RemoveAt(i);
@@ -53,7 +53,7 @@ public class EnemyHandler : MonoBehaviour
     {
         for (int i = quedWaves.Count - 1; i >= 0; i--)
         {
-            if (Time.time > quedWaves[i].spawnTimeBand.y)
+            if (Time.timeSinceLevelLoad > quedWaves[i].spawnTimeBand.y)
             {
                 quedWaves.RemoveAt(i);
             }

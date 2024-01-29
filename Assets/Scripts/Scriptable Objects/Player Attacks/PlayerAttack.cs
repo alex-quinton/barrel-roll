@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : ScriptableObject
 {
-	public int cooldown;
+	public float cooldown;
 	public string attackName;
 	public int tier;
 }

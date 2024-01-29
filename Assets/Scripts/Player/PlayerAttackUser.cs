@@ -13,7 +13,7 @@ public class PlayerAttackUser : MonoBehaviour
 	public PlayerAttack[] attacks;
 
 	// each cooldown corresponds to the attack at the same index in attacks array
-	public int[] cooldowns;
+	public float[] cooldowns;
 
 	private Animator anim;
 
@@ -31,20 +31,16 @@ public class PlayerAttackUser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		cooldowns[0] -= Time.deltaTime;
+
         for (int i = 0; i < cooldowns.Length; i++)
 		{
-			if (cooldowns[i] > 0)
-				cooldowns[i] -= 1;
-
-			if (cooldowns[i] == 0)
-			{
-				InvokeAttack(attacks[i]);
-				cooldowns[i] = attacks[i].cooldown;
-				//Debug.Log("setting cooldown to: " + attacks[i].cooldown);
-				continue;
-			}
-
-		}
+            if (cooldowns[i] <= 0)
+            {
+                InvokeAttack(attacks[i]);
+                cooldowns[i] = attacks[i].cooldown;
+            }
+        }
     }
 
 // TODO: fix animation states for attacks so that they dont interfere with each other

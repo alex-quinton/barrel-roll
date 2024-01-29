@@ -151,12 +151,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9d3702b24388900419c2109cc2d0685f, type: 3}
   - {fileID: 8300000, guid: d878f847381d33b4fb93eb705b7c37e2, type: 3}
   attacks:
-  - {fileID: 11400000, guid: dc3bf424415c67949b8c19fadd8624d7, type: 2}
   - {fileID: 11400000, guid: 21cd912a9cf9c80468e95699bc1b7208, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cooldowns: 0000000000000000000000000000000000000000
+  cooldowns:
+  - 0
   cleaveAnim: {fileID: 6266652258932851364}
 --- !u!95 &6801267755308513768
 Animator:
